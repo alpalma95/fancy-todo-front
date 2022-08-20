@@ -1,9 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Context } from "../../store";
 
 const Todo = ({ id, text, todo }) => {
   const { store, actions } = useContext(Context);
-  const [showRemove, setShowRemove] = useState(true);
 
   return (
     <li
