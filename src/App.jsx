@@ -11,43 +11,21 @@ import Header from "./component/Header.jsx";
 
 export default function App() {
   const { store, actions } = useContext(Context);
-  const [input, setInput] = useState("");
-  const [todos, setTodos] = useState([]);
-  const [todosEmpty, setTodosEmpty] = useState(true);
-  const [counter, setCounter] = useState(0);
 
   return (
     <div className="App">
       <Header />
       <ul className="list">
         <li>
-          <Input
-            input={input}
-            setInput={setInput}
-            todos={todos}
-            setTodos={setTodos}
-            setTodosEmpty={setTodosEmpty}
-            counter={counter}
-            setCounter={setCounter}
-          />
+          <Input />
         </li>
         <li>
           {store.todos.length === 0 ? (
             <EmptyList />
           ) : (
             <>
-              <TodoList
-                className="todo-list"
-                todos={todos}
-                setTodos={setTodos}
-                counter={counter}
-                setCounter={setCounter}
-              />
-              <ItemsCounter
-                counter={counter}
-                todos={todos}
-                setTodos={setTodos}
-              />
+              <TodoList className="todo-list" />
+              <ItemsCounter />
             </>
           )}
         </li>

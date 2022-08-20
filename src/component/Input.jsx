@@ -1,16 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store";
+import { v4 as uuidv4 } from "uuid";
 
-const Input = ({
-  input,
-  setInput,
-  todos,
-  setTodos,
-  setTodosEmpty,
-  counter,
-  setCounter,
-}) => {
+const Input = () => {
   const { store, actions } = useContext(Context);
+  const [input, setInput] = useState("");
 
   const setInputHandler = (e) => {
     setInput(e.target.value);
@@ -18,12 +12,12 @@ const Input = ({
 
   const newTodoHandler = (e) => {
     if (e.key === "Enter" && e.target.value !== "") {
-      actions.addTodo([
-        ...todos,
-        { id: `${Math.random() * 5000}`, text: `${input}`, finished: false },
-      ]);
+      actions.addTodo({
+        id: uuidv4(),
+        text: `${input}`,
+        finished: false,
+      });
       setInput("");
-      setCounter(counter + 1);
     }
   };
 

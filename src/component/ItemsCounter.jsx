@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store";
 
-const ItemsCounter = ({ counter, todos, setTodos }) => {
+const ItemsCounter = () => {
   const { store, actions } = useContext(Context);
   const [items, setItems] = useState(``);
 

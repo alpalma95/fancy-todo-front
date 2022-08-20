@@ -10,7 +10,7 @@ export const Provider = (props) => {
     addTodo: (todo) => {
       setStore({
         ...store,
-        todos: [...store.todos, ...todo],
+        todos: [...store.todos, todo],
       });
       console.log(store.todos);
     },
