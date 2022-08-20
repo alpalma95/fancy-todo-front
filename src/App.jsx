@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "./store";
+
 import "./styles.css";
 import Input from "./component/Input.jsx";
 import TodoList from "./component/TodoList/TodoList.jsx";
@@ -8,21 +10,11 @@ import DecorationBox from "./component/DecorationBox.jsx";
 import Header from "./component/Header.jsx";
 
 export default function App() {
+  const { store, actions } = useContext(Context);
   const [input, setInput] = useState("");
   const [todos, setTodos] = useState([]);
   const [todosEmpty, setTodosEmpty] = useState(true);
   const [counter, setCounter] = useState(0);
-
-  useEffect(() => {
-    if (
-      todos.length === 0 ||
-      todos.every((x) => {
-        return x.finished;
-      })
-    ) {
-      setTodosEmpty(true);
-    }
-  }, [todos]);
 
   return (
     <div className="App">
@@ -40,7 +32,7 @@ export default function App() {
           />
         </li>
         <li>
-          {todosEmpty ? (
+          {store.todos.length === 0 ? (
             <EmptyList />
           ) : (
             <>
@@ -51,7 +43,11 @@ export default function App() {
                 counter={counter}
                 setCounter={setCounter}
               />
-              <ItemsCounter counter={counter} />
+              <ItemsCounter
+                counter={counter}
+                todos={todos}
+                setTodos={setTodos}
+              />
             </>
           )}
         </li>

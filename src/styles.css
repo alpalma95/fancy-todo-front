@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.3/bootstrap-icons.svg");
 
 :root {
   --border-color: rgb(231, 230, 230);
+  --primary: rgb(219, 166, 175);
 }
 
 * {
@@ -18,15 +18,13 @@ body {
 
 .App {
   margin-top: 5vh;
-  /* display: flex;
-  flex-direction: column; */
 }
 
 .header {
   text-align: center;
   font-size: 6rem;
   font-weight: 100;
-  color: rgb(219, 166, 175);
+  color: var(--primary);
 }
 
 .list {
@@ -92,6 +90,28 @@ li {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   color: rgb(173, 173, 173);
+  display: flex;
+}
+
+.items-counter__btn {
+  display: inline-block;
+  margin-left: auto;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--primary);
+  background-color: white;
+  border-radius: 2px;
+  color: var(--primary);
+}
+
+.items-counter__btn:hover {
+  color: white;
+  background-color: var(--primary);
+  cursor: pointer;
+}
+
+.todo-item--finished {
+  opacity: 0.5;
+  text-decoration: line-through;
 }
 
 /* Decoration boxes */

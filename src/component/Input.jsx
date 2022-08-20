@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store";
 
 const Input = ({
   input,
@@ -7,20 +8,21 @@ const Input = ({
   setTodos,
   setTodosEmpty,
   counter,
-  setCounter
+  setCounter,
 }) => {
+  const { store, actions } = useContext(Context);
+
   const setInputHandler = (e) => {
     setInput(e.target.value);
   };
 
   const newTodoHandler = (e) => {
     if (e.key === "Enter" && e.target.value !== "") {
-      setTodos([
+      actions.addTodo([
         ...todos,
-        { id: `${Math.random() * 5000}`, text: `${input}`, finished: false }
+        { id: `${Math.random() * 5000}`, text: `${input}`, finished: false },
       ]);
       setInput("");
-      setTodosEmpty(false);
       setCounter(counter + 1);
     }
   };
