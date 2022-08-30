@@ -19,7 +19,7 @@ export default function App() {
       <Header />
       <MenuIcon />
       <Overlay />
-      <ul className="list">
+      <ul className={`list ${store.todos.length ? "move-up" : ""}`}>
         <li>
           <Input />
         </li>
