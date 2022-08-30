@@ -5,6 +5,10 @@ export const Context = createContext();
 export const Provider = (props) => {
   const [store, setStore] = useState({
     todos: [],
+    showMenu: false,
+    showSignup: false,
+    showLogin: false,
+    showTitle: true,
   });
   const actions = {
     addTodo: (todo) => {
@@ -30,6 +34,20 @@ export const Provider = (props) => {
     removeCompleted: () => {
       const todosFiltered = store.todos.filter((x) => !x.finished);
       setStore({ ...store, todos: todosFiltered });
+    },
+    showMenuHandler: () => {
+      setStore({
+        ...store,
+        showMenu: !store.showMenu,
+        showLogin: false,
+        showSignup: false,
+      });
+    },
+    showSignupHandler: () => {
+      setStore({ ...store, showSignup: !store.showSignup });
+    },
+    showLoginHandler: () => {
+      setStore({ ...store, showLogin: !store.showLogin });
     },
   };
 

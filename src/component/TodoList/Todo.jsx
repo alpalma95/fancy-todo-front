@@ -14,10 +14,12 @@ const Todo = ({ id, text, todo }) => {
         role="img"
         aria-label="red cross"
         className={`todo-item__remove ${todo.finished ? `hidden` : ``}`}
-        id={id}
-        onClick={actions.markAsFinished}
       >
-        ❌
+        <i
+          className="fa-solid fa-trash"
+          id={id}
+          onClick={actions.markAsFinished}
+        ></i>
       </span>
     </li>
   );

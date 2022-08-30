@@ -1,7 +1,11 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { Context } from "../store.jsx";
 const Header = () => {
-  return <h1 className="header">todos</h1>;
+  const { store, actions } = useContext(Context);
+
+  return (
+    <h1 className={`header ${store.todos.length ? "shrink" : ""}`}>todos</h1>
+  );
 };
 
 export default Header;

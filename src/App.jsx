@@ -8,6 +8,8 @@ import EmptyList from "./component/TodoList/EmptyList.jsx";
 import ItemsCounter from "./component/ItemsCounter.jsx";
 import DecorationBox from "./component/DecorationBox.jsx";
 import Header from "./component/Header.jsx";
+import MenuIcon from "./component/Menu/MenuIcon.jsx";
+import Overlay from "./component/Menu/Overlay.jsx";
 
 export default function App() {
   const { store, actions } = useContext(Context);
@@ -15,6 +17,8 @@ export default function App() {
   return (
     <div className="App">
       <Header />
+      <MenuIcon />
+      <Overlay />
       <ul className="list">
         <li>
           <Input />

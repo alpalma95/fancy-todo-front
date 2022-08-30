@@ -3,6 +3,7 @@
 :root {
   --border-color: rgb(231, 230, 230);
   --primary: rgb(219, 166, 175);
+  --white: rgb(247, 241, 241);
 }
 
 * {
@@ -27,6 +28,11 @@ body {
   color: var(--primary);
 }
 
+.shrink {
+  animation: shrink 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
 .list {
   border: 1px solid var(--border-color);
   border-bottom: none;
@@ -39,6 +45,10 @@ body {
 
 .hidden {
   visibility: hidden;
+}
+
+.none {
+  display: none;
 }
 
 /* Input */
@@ -132,4 +142,21 @@ li {
   width: min(88%, 39rem);
   margin: 0vh auto;
   opacity: 0.7;
+}
+
+@keyframes shrink {
+  0% {
+    margin-bottom: -1rem;
+    opacity: 0;
+    z-index: -1;
+  }
+  50% {
+    margin-bottom: -5rem;
+    opacity: 0;
+  }
+  100% {
+    margin-bottom: -7rem;
+    z-index: -5;
+    opacity: 0;
+  }
 }

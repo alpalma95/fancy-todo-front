@@ -1,0 +1,44 @@
+.menu {
+  height: 100%;
+  width: 20rem;
+  max-width: 80%;
+  background-color: var(--primary);
+  animation: openMenu 0.5s ease;
+}
+
+.menu__list {
+  padding: 3rem;
+}
+
+.menu__list-item {
+  color: rgb(247, 241, 241);
+  border: 0;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  width: fit-content;
+  animation: fadeInLeft 0.5s ease;
+}
+
+@keyframes openMenu {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 20rem;
+    max-width: 80%;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
