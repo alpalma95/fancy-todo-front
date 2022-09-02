@@ -9,7 +9,7 @@ export const Provider = (props) => {
     showSignup: false,
     showLogin: false,
     showTitle: true,
-    backEndUrl: "http://localhost:3000/api/v1/",
+    backEndUrl: "https://fancy-todo-back.vercel.app/api/v1/",
     userToken: localStorage.getItem("jwt-token") || null,
     showMessage: false,
     messageType: "error",
