@@ -4,6 +4,11 @@ import { Context } from "../../store";
 const Todo = ({ id, text, todo }) => {
   const { store, actions } = useContext(Context);
 
+  const markAsFinishedHanlder = (e) => {
+    actions.markAsFinished(e);
+    actions.markAsFinishedBE(todo);
+  };
+
   return (
     <li
       className={`todo-item ${todo.finished ? `todo-item--finished` : ``}`}
@@ -18,7 +23,7 @@ const Todo = ({ id, text, todo }) => {
         <i
           className="fa-solid fa-trash"
           id={id}
-          onClick={actions.markAsFinished}
+          onClick={markAsFinishedHanlder}
         ></i>
       </span>
     </li>

@@ -12,11 +12,14 @@ const Input = () => {
 
   const newTodoHandler = (e) => {
     if (e.key === "Enter" && e.target.value !== "") {
-      actions.addTodo({
-        id: uuidv4(),
-        text: `${input}`,
+      const newTodo = {
+        uid: uuidv4(),
+        text: input,
         finished: false,
-      });
+      };
+      actions.addTodo(newTodo);
+      actions.addTodoBE(newTodo);
+
       setInput("");
     }
   };

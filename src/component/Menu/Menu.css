@@ -21,6 +21,28 @@
   animation: fadeInLeft 0.5s ease;
 }
 
+.logout-icon {
+  font-size: 1.5rem;
+  display: block;
+  padding: 0.3rem 0.5rem 0 0;
+  height: fit-content;
+}
+.logout,
+.welcome {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.welcome {
+  font-size: 1.2rem;
+  cursor: default;
+}
+
+.smiley {
+  padding-left: 0.5rem;
+}
+
 @keyframes openMenu {
   0% {
     width: 0;

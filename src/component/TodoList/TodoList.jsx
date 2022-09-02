@@ -7,7 +7,7 @@ const TodoList = () => {
   return (
     <ul>
       {store.todos.map((x) => {
-        return <Todo key={x.id} id={x.id} text={x.text} todo={x} />;
+        return <Todo key={x.uid} id={x.uid} text={x.text} todo={x} />;
       })}
     </ul>
   );

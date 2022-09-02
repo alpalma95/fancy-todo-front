@@ -17,9 +17,28 @@ const Menu = () => {
     </ul>
   );
 
+  const logoutBtn = (
+    <ul className="menu__list">
+      <li className="menu__list-item welcome">
+        Welcome! <i className="fa-regular fa-face-smile-beam smiley"></i>
+      </li>
+      <li className="menu__list-item logout" onClick={actions.logoutHandler}>
+        <i className="fa-solid fa-right-from-bracket logout-icon"></i>Logout
+      </li>
+    </ul>
+  );
+
   return (
     <div className="menu">
-      {store.showSignup ? <Signup /> : store.showLogin ? <Login /> : menu}
+      {store.showSignup ? (
+        <Signup />
+      ) : store.showLogin ? (
+        <Login />
+      ) : store.userToken ? (
+        logoutBtn
+      ) : (
+        menu
+      )}
     </div>
   );
 };

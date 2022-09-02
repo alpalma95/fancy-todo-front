@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Context } from "./store";
 
 import "./styles.css";
 import Input from "./component/Input.jsx";
@@ -10,12 +9,24 @@ import DecorationBox from "./component/DecorationBox.jsx";
 import Header from "./component/Header.jsx";
 import MenuIcon from "./component/Menu/MenuIcon.jsx";
 import Overlay from "./component/Menu/Overlay.jsx";
+import MessageBox from "./component/MessageBox.jsx";
+import { Context } from "./store";
 
 export default function App() {
   const { store, actions } = useContext(Context);
 
+  useEffect(() => {
+    actions.getToken();
+    actions.fetchTodos();
+  }, [store.userToken]);
+
+  // useEffect(() => {
+  //   actions.fetchTodos();
+  // }, []);
+
   return (
     <div className="App">
+      <MessageBox />
       <Header />
       <MenuIcon />
       <Overlay />

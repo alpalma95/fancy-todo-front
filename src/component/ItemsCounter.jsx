@@ -15,7 +15,12 @@ const ItemsCounter = () => {
       <small>
         {items} {`${items === 1 ? `item` : `items`}`} left
       </small>
-      <button className="items-counter__btn" onClick={actions.removeCompleted}>
+      <button
+        className="items-counter__btn"
+        onClick={() => {
+          actions.removeCompleted(), actions.removeCompletedBE();
+        }}
+      >
         Delete Completed
       </button>
     </div>

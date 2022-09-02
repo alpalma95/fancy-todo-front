@@ -1,0 +1,71 @@
+.message-box {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(70%, 30rem);
+  height: 10vh;
+  z-index: 100;
+  border-radius: 5px;
+  animation: moveDown 0.2s ease;
+  animation-fill-mode: forwards;
+  place-items: center;
+}
+
+.message-box > p {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.moveDown {
+  animation: moveDown 0.2s ease;
+  animation-fill-mode: forwards;
+}
+
+.moveUpAndFade {
+  animation: moveUpAndFade 0.2s ease;
+  animation-fill-mode: forwards;
+}
+
+.message-box--success {
+  background-color: var(--success-light);
+  border: 2px solid var(--success-dark);
+  color: var(--success-dark);
+}
+
+.message-box--error {
+  background-color: var(--error-light);
+  border: 2px solid var(--error-dark);
+  color: var(--error-dark);
+}
+
+@keyframes moveDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem) translateX(-50%);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-2rem) translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+@keyframes moveUpAndFade {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-2rem) translateX(-50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4rem) translateX(-50%);
+    top: -50%;
+  }
+}
